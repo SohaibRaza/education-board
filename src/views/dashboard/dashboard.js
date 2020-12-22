@@ -85,8 +85,8 @@ const line2 = {
             //label: 'Rainfall',
             fill: true,
             //lineTension: 0.5,
-            backgroundColor: '#e7fcea',
-            borderColor: '#cbfcd7',
+            backgroundColor: '#ffece0',
+            borderColor: '#ffcead',
             borderWidth: 2,
             data: [65, 59, 80, 81, 56]
         }
@@ -99,8 +99,8 @@ const line3 = {
             //label: 'Rainfall',
             fill: true,
             //lineTension: 0.5,
-            backgroundColor: '#f3f2ff',
-            borderColor: '#d5d1f9',
+            backgroundColor: '#e7fcea',
+            borderColor: '#cbfcd7',
             borderWidth: 2,
             data: [65, 59, 80, 81, 56]
         }

@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# View live
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
++ education-board.surge.sh
 
 ## Available Scripts
 

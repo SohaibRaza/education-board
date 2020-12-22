@@ -11,10 +11,10 @@ import Poppers from "@material-ui/core/Popper";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 // @material-ui/icons
-import Person from "@material-ui/icons/Person";
 import Notifications from "@material-ui/icons/Notifications";
-import Dashboard from "@material-ui/icons/Dashboard";
-import Search from "@material-ui/icons/Search";
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined';
 
 import { useStyles } from "./style";
 
@@ -44,18 +44,6 @@ const NavbarLinks = () => {
     };
     return (
         <div>
-            <Button
-                color={window.innerWidth > 959 ? "transparent" : "white"}
-                justIcon={window.innerWidth > 959}
-                simple={!(window.innerWidth > 959)}
-                aria-label="Dashboard"
-                className={classes.buttonLink}
-            >
-                <Dashboard className={classes.icons} />
-                <Hidden mdUp implementation="css">
-                <p className={classes.linkText}>Dashboard</p>
-                </Hidden>
-            </Button>
             <div className={classes.manager}>
                 <Button
                     color={window.innerWidth > 959 ? "transparent" : "white"}
@@ -74,41 +62,35 @@ const NavbarLinks = () => {
                         </p>
                     </Hidden>
                 </Button>
-                <Poppers
-                    open={Boolean(openNotification)}
-                    anchorEl={openNotification}
-                    transition
-                    disablePortal
-                    className={
-                        classNames({ [classes.popperClose]: !openNotification }) +
-                        " " +
-                        classes.popperNav
-                    }
+            </div>
+            <Button
+                color={window.innerWidth > 959 ? "transparent" : "white"}
+                justIcon={window.innerWidth > 959}
+                simple={!(window.innerWidth > 959)}
+                aria-label="Dashboard"
+                className={classes.buttonLink}
+            >
+                <ChatBubbleOutlineIcon className={classes.icons} />
+                <Hidden mdUp implementation="css">
+                <p className={classes.linkText}>Dashboard</p>
+                </Hidden>
+            </Button>
+
+            <div className={classes.manager}>
+                <Button
+                    color={window.innerWidth > 959 ? "transparent" : "white"}
+                    justIcon={window.innerWidth > 959}
+                    simple={!(window.innerWidth > 959)}
+                    aria-owns={openProfile ? "profile-menu-list-grow" : null}
+                    aria-haspopup="true"
+                    onClick={handleClickProfile}
+                    className={classes.buttonLink}
                 >
-                {({ TransitionProps, placement }) => (
-                    <Grow
-                    {...TransitionProps}
-                    id="notification-menu-list-grow"
-                    style={{
-                        transformOrigin:
-                        placement === "bottom" ? "center top" : "center bottom"
-                    }}
-                    >
-                    <Paper>
-                        <ClickAwayListener onClickAway={handleCloseNotification}>
-                        <MenuList role="menu">
-                            <MenuItem onClick={handleCloseNotification} className={classes.dropdownItem}>
-                                Mike John responded to your email
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNotification} className={classes.dropdownItem}>
-                                You have 5 new tasks
-                            </MenuItem>
-                        </MenuList>
-                        </ClickAwayListener>
-                    </Paper>
-                    </Grow>
-                )}
-                </Poppers>
+                    <MailOutlineIcon className={classes.icons} />
+                    <Hidden mdUp implementation="css">
+                        <p className={classes.linkText}>Profile</p>
+                    </Hidden>
+                </Button>
             </div>
             <div className={classes.manager}>
                 <Button
@@ -120,50 +102,11 @@ const NavbarLinks = () => {
                     onClick={handleClickProfile}
                     className={classes.buttonLink}
                 >
-                    <Person className={classes.icons} />
+                    <CalendarTodayOutlinedIcon className={classes.icons} />
                     <Hidden mdUp implementation="css">
                         <p className={classes.linkText}>Profile</p>
                     </Hidden>
                 </Button>
-                <Poppers
-                    open={Boolean(openProfile)}
-                    anchorEl={openProfile}
-                    transition
-                    disablePortal
-                    className={
-                        classNames({ [classes.popperClose]: !openProfile }) +
-                        " " +
-                        classes.popperNav
-                    }
-                >
-                {({ TransitionProps, placement }) => (
-                    <Grow
-                        {...TransitionProps}
-                        id="profile-menu-list-grow"
-                        style={{
-                            transformOrigin:
-                            placement === "bottom" ? "center top" : "center bottom"
-                        }}
-                    >
-                        <Paper>
-                            <ClickAwayListener onClickAway={handleCloseProfile}>
-                            <MenuList role="menu">
-                                <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
-                                    Profile
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
-                                    Settings
-                                </MenuItem>
-                                <Divider light />
-                                <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
-                                    Logout
-                                </MenuItem>
-                            </MenuList>
-                            </ClickAwayListener>
-                        </Paper>
-                    </Grow>
-                )}
-                </Poppers>
             </div>
         </div>
     );

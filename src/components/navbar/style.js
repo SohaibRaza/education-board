@@ -61,32 +61,15 @@ export const useStyles = makeStyles((theme) => ({
         color: whiteColor,
         ...defaultBoxShadow
     },
-    info: {
-        backgroundColor: infoColor[0],
-        color: whiteColor,
-        ...defaultBoxShadow
-    },
-    success: {
-        backgroundColor: successColor[0],
-        color: whiteColor,
-        ...defaultBoxShadow
-    },
-    warning: {
-        backgroundColor: warningColor[0],
-        color: whiteColor,
-        ...defaultBoxShadow
-    },
-    danger: {
-        backgroundColor: dangerColor[0],
-        color: whiteColor,
-        ...defaultBoxShadow
-    },
     // NavbarLinks Styles
     linkText: {
         zIndex: "4",
         ...defaultFont,
         fontSize: "14px",
         margin: "0px"
+    },
+    icons: {
+        color: "#6a6a6a"
     },
     buttonLink: {
         [theme.breakpoints.down("sm")]: {

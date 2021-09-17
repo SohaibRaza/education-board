@@ -1,6 +1,6 @@
 # View live
 
-+ education-board.surge.sh
++ [LIVE APP](https://education-board.surge.sh)
 
 ## Available Scripts
 
